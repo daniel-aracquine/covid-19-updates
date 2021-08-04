@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhNa4eT025_r0HKkEz41Z0USG0Av0o9XMMfw&usqp=CAU">
+    <link rel="stylesheet" href="db.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>COVID-19 DASHBOARD</h1>
+        <p id="p1">
+            <button class="b1" type="button" onclick="">LOGIN</button>
+            <button class="b1" type="button" onclick="">SIGN UP</button>
+        </p>
+    </div>
+        <input type="checkbox" id="click">
+        <p id="p2">
+            <button class="b2" type="button" onclick="">LOGIN</button>
+            <button class="b2" type="button" onclick="">SIGN UP</button>
+        </p>
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+    <section class="india">
+        <div class="data" id="d1">
+            <p class="today">Yesterday: <span id="todayC"></span></p>
+            <p class="total">Total Cases: <span id="totalC"></span></p>
+        </div>
+        <div class="data" id="d2">
+            <p class="today">Yesterday: <span id="todayR"></span></p>
+            <p class="total">Total Recovered: <br> <span id="totalR"></span></p>
+        </div>
+        <div class="data" id="d3">
+            <p class="today">Yesterday: <span id="todayD"></span></p>
+            <p class="total">Total Deceased: <span id="totalD"></span></p>
+        </div>
+    </section>
+
+    <section class="chart1">
+        <p id="last">
+            <span class="u_line">All Time</span>
+            <button id="last30" onclick="changeTo30()">
+                Last 30 days
+            </button>
+        </p>
+        <p id="all">
+            <button id="allTime" onclick="changeToAll()">
+                All Time
+            </button>
+            <span class="u_line">Last 30 days</span>
+        </p>
+        <div id="daily">
+            <canvas id="chart_daily"></canvas>
+        </div>
+        <div id="daily30">
+            <canvas id="chart_daily30"></canvas>
+        </div>
+    </section>
+    <section class="combined">
+        <section class="statewise">
+            <div class="state_div">
+                <p class="heading" id="head1">
+                    State/UT 
+                    <button class="accept" id="accept1" onclick="getDa()"><i class="fas fa-sort-up sort-up1"></i></button> 
+                    <button class="accept" id="accept2" onclick="getDat()"><i class="fas fa-sort-down sort-down1"></i></button>
+                    <button class="accept" id="accept9" onclick="getDat()"><i class="fas fa-bars bar1"></i></i></button> 
+                </p>
+                <p class="heading" id="head2">
+                    Cases 
+                    <button class="accept" id="accept4" onclick="minCases()"><i class="fas fa-sort-down sort-down2"></i></button> 
+                    <button class="accept" id="accept3" onclick="maxCases()"><i class="fas fa-sort-up sort-up2"></i></button>
+                    <button class="accept" id="accept10" onclick="maxCases()"><i class="fas fa-bars bar2"></i></i></button> 
+                </p>
+                <p class="heading" id="head3">
+                    Recovered
+                     <button class="accept" id="accept5" onclick="maxRec()"><i class="fas fa-sort-up sort-up3"></i></button> 
+                     <button class="accept" id="accept6" onclick="minRec()"><i class="fas fa-sort-down sort-down3"></i></button>
+                     <button class="accept" id="accept11" onclick="maxRec()"><i class="fas fa-bars bar3"></i></i></button> 
+                </p>
+                <p class="heading" id="head4">
+                    Deceased 
+                    <button class="accept" id="accept7" onclick="maxDeaths()"><i class="fas fa-sort-up sort-up4"></i></button> 
+                    <button class="accept" id="accept8" onclick="minDeaths()"><i class="fas fa-sort-down sort-down4"></i></button>
+                    <button class="accept" id="accept12" onclick="maxDeaths()"><i class="fas fa-bars bar4"></i></i></button> 
+                </p>
+            </div>
+            <div class="div_state">
+                <p id="1">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="2">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="3"> 
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="4">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="5">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="6">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="7">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="8">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="9">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="10">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="11">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="12">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="13">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="14">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="15">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="16">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="17">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="18">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="19">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="20">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="21">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="22">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="23">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="24">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="25">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="26">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="27">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="28">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="29">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="30">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="31">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="32">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="33">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="34">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="35">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+                <p id="36">
+                    <span class="para"></span><span></span><span></span><span></span>
+                </p>
+            </div>
+            <div class="space"></div>
+        </section>
+        <section class="pie_chart">
+            <div class="chose">
+                <span id="bold">Covid-19 trend</span>
+                <!-- <span id="drop-down"> -->
+                    <span id="drop-down">
+                    <label for="click1" class="state_selector">
+                        <span id="name_box" class="box_name">India</span> <i class="fas fa-sort-down down"></i>
+                    </label> <!-- </span> --> 
+                    <!-- <input type="checkbox" id="click2">
+                    <hr id="hr1"> -->
+                    <input type="checkbox" id="click1">
+                    <ul class="list list__" id="listId">
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__0">
+                            <p id="_0">
+                            <span class="para">India</span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__1">
+                            <p id="_1">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__2">
+                            <p id="_2">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__3">
+                            <p id="_3"> 
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__4">
+                            <p id="_4">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__5">
+                            <p id="_5">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__6">
+                            <p id="_6">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__7">
+                            <p id="_7">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__8">
+                            <p id="_8">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__9">
+                            <p id="_9">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__10">
+                            <p id="_10">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__11">
+                            <p id="_11">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__12">
+                            <p id="_12">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__13">
+                            <p id="_13">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__14">
+                            <p id="_14">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)"  id="__15">
+                            <p id="_15">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__16">
+                            <p id="_16">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__17">
+                            <p id="_17">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__18">
+                            <p id="_18">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__19">
+                            <p id="_19">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__20">
+                            <p id="_20">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__21">
+                            <p id="_21">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__22">
+                            <p id="_22">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__23">
+                            <p id="_23">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__24">
+                            <p id="_24">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__25">
+                            <p id="_25">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__26">
+                            <p id="_26">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__27">
+                            <p id="_27">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__28">
+                            <p id="_28">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__29">
+                            <p id="_29">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__30">
+                            <p id="_30">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__31">
+                            <p id="_31">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__32">
+                            <p id="_32">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__33">
+                            <p id="_33">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__34">
+                            <p id="_34">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__35">
+                            <p id="_35">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                        <button class="for_hover for_hove" onClick="reply_click(this.id)" id="__36">
+                            <p id="_36">
+                            <span class="para"></span>
+                        </p>
+                        </button>
+                    </ul>
+                </span>
+            </div>
+           <div class="pie_div"> <canvas id="pie"></canvas> </div>
+        </section>
+    </section>
+    <footer class="footer">
+        <p id="info">API used : https://api.covid19india.org/data.json </p>
+        <p id="copyright"> © 2021 Sarthak</p>
+    </footer>
+    <script src="dash.js"></script>
+</body>
+</html>
