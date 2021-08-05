@@ -306,7 +306,7 @@ nav{
 .state_div{
     display: grid;
     grid-template-columns: auto auto auto auto;
-    width: 500px;
+    width: 507px;
     /* width: 100%; */
     background-color: #fff;
     align-content: space-around;
