@@ -516,6 +516,8 @@ nav{
     width: 255px;
     padding: 5px 15px 5px 10px;
     border-radius: 4px;
+    position: relative;
+    display: inline-block;
 }
 #click1{
     display: none;
@@ -534,6 +536,9 @@ nav{
     background-color: #e2e2d9;
     right: 30px;
     width: 255px;
+    position: absolute;
+    top: 110%;
+    left: 0;
 }
 .list::-webkit-scrollbar {
     width: 0px;
