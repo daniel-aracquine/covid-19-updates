@@ -487,7 +487,8 @@ function reply_click(clicked_id)
       }
       document.getElementById('name_box').classList.remove("box_name");
       if(l=="__8")  document.getElementById('name_box').classList.add("box_name");
-      document.getElementById('listId').display='none';
+    //   document.getElementById('listId').display='none';
+    document.getElementById('listId').classList.add("list__");
       document.getElementById('click1').checked=false;
       graph_pie(clicked_id);
   }
@@ -514,7 +515,7 @@ function reply_click(clicked_id)
     manocha.data.datasets.forEach((dataset) => {
         dataset.data.pop();
     });
-    manocha.update();
+    manocha.update('none');
     k--;
     }}
     // if(idNumber=0){
@@ -547,3 +548,18 @@ function reply_click(clicked_id)
       var k="__"+i;
       document.getElementById(k).classList.remove("for_hove");
   }
+//   if(document.getElementById('click1').checked==false) document.getElementById('listId').classList.remove("list__");
+
+document.getElementById('click1').addEventListener('click',function(){
+    if(document.getElementById('click1').checked==true) document.getElementById('listId').classList.remove("list__");
+    else document.getElementById('listId').classList.add("list__");
+})
+
+document.addEventListener('mouseup', function(e) {
+    let container = document.getElementById('try_again');
+    if (!container.contains(e.target)) {
+        if(document.getElementById('click1').checked==true) {document.getElementById('click1').checked=false;
+        if(document.getElementById('click1').checked==true) document.getElementById('listId').classList.remove("list__");
+    else document.getElementById('listId').classList.add("list__");}
+    }
+  });
