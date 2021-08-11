@@ -530,7 +530,7 @@ nav{
     font-size: 12px;
     margin: 0;
     /* display: none; */
-    position: fixed;
+    /* position: fixed; */
     z-index: 4;
     bottom: 166px;
     background-color: #e2e2d9;
@@ -539,6 +539,8 @@ nav{
     position: absolute;
     top: 110%;
     left: 0;
+    display: flex;
+    flex-direction: column;
 }
 .list::-webkit-scrollbar {
     width: 0px;
@@ -569,10 +571,10 @@ nav{
 /* #__0{
     background-color: slategray;
 } */
-input[type=checkbox]:checked + .list{
+/* input[type=checkbox]:checked + .list{
     display: flex;
     flex-direction: column;
-}
+} */
 input[type=checkbox]:checked + #hr1{
     display: block;
 }
