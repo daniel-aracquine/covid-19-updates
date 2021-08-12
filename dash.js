@@ -563,13 +563,24 @@ document.addEventListener('mouseup', function(e) {
     else document.getElementById('listId').classList.add("list__");}
     }
   });
+//   document.addEventListener('mouseup',function(e){
+//       let hey=document.getElementById('drop-down');
+//       if(hey.contains(e.target)){
+//         if(document.getElementById('click1').checked==false) {
+//             document.getElementById('click1').checked=true;
+//         if(document.getElementById('click1').checked==true) {document.getElementById('listId').classList.remove("list__");}
+//     else document.getElementById('listId').classList.add("list__");
+// }
+//       }
+//   })
 document.getElementById('click').addEventListener('click',function(){
     if(document.getElementById('click').checked==true) document.getElementById('p2').classList.remove("p2_hide");
     else document.getElementById('p2').classList.add("p2_hide");
 });
 document.addEventListener('mouseup', function(e) {
     let container = document.getElementById('p2');
-    if (!container.contains(e.target)) {
+    let upper = document.getElementById('namo');
+    if (!container.contains(e.target) && !upper.contains(e.target)) {
         if(document.getElementById('click').checked==true) {document.getElementById('click').checked=false;
         if(document.getElementById('click').checked==true) document.getElementById('p2').classList.remove("p2_hide");
     else document.getElementById('p2').classList.add("p2_hide");}
