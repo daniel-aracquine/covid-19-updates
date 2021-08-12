@@ -563,3 +563,15 @@ document.addEventListener('mouseup', function(e) {
     else document.getElementById('listId').classList.add("list__");}
     }
   });
+document.getElementById('click').addEventListener('click',function(){
+    if(document.getElementById('click').checked==true) document.getElementById('p2').classList.remove("p2_hide");
+    else document.getElementById('p2').classList.add("p2_hide");
+});
+document.addEventListener('mouseup', function(e) {
+    let container = document.getElementById('p2');
+    if (!container.contains(e.target)) {
+        if(document.getElementById('click').checked==true) {document.getElementById('click').checked=false;
+        if(document.getElementById('click').checked==true) document.getElementById('p2').classList.remove("p2_hide");
+    else document.getElementById('p2').classList.add("p2_hide");}
+    }
+  });
