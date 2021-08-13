@@ -18,7 +18,7 @@ async function getData(){
     }
     return{taarik,number};
 }
-    getData();
+    getData(); 
 
 
     var sarthak=data;

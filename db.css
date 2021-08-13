@@ -21,7 +21,7 @@ body{
     top: 0;
     /* border-radius: 0 0 0 15px; */
     z-index: 2;
-}
+} 
 .menu-btn{
     z-index: 2;
 }
@@ -243,7 +243,7 @@ nav{
     height: 600px;
 }
 .chart1 p{
-    display: flexbox;
+    /* display: flexbox; */
     justify-content: flex-end;
 }
 #all{
@@ -276,12 +276,13 @@ nav{
 }
 #last30{
      border: none;
-     background-color: #bbbebd;
+     background-color: #f5f9f8;
      font-family: var(--bs-font-sans-serif);
      font-size: 16px;
 }
 #last30:hover{
     color: red;
+    cursor: pointer;
 }
 .u_line{
     /* text-decoration: underline; */
@@ -291,13 +292,14 @@ nav{
 }
 #allTime{
     border: none;
-    background-color: #bbbebd;
+    background-color: #f5f9f8;
     font-family: var(--bs-font-sans-serif);
     font-size: 16px;
     margin-right: 15px;
 }
 #allTime:hover{
    color: red;
+   cursor: pointer;
 }
 .combined{
     display: grid;
@@ -736,10 +738,19 @@ input[type=checkbox]:checked + #hr1{
     .sort-down1{
         bottom: 1.5px;
     } */
-    .sort-down2,.sort-up2,.sort-up3,.sort-up4,.sort-down1,.sort-down2,.sort-down3,.sort-down4,.bar1,.bar2,.bar3{
+    .sort-down2,.sort-up2,.sort-up3,.sort-up4,.sort-down1,.sort-down2,.sort-down3,.sort-down4,.bar1,.bar2,.bar3,.bar4,.sort-up1{
         position: relative;
         right: 0px;
         left: 2px;
+    }
+    .sort-up2,.sort-up3,.sort-up4{
+        top: 2px;
+    }
+    #u1,#u2,#u3,#u4,#d_1,#d_2,#d_3,#d_4{
+        font-size: 10px;
+    }
+    #b1,#b2,#b3,#b4{
+        font-size: 7px;
     }
 }
 .list__{
@@ -823,9 +834,26 @@ input[type=checkbox]:checked + #hr1{
         font-size: 10px;
     }
 }
-/* #try_again span{
-    display: inline-flex
-} */
+#try_again:hover{
+    cursor: pointer;
+}
 #name_box br{
     display: none;
+}
+.for_hove:hover,.for_hover:hover{
+    cursor: pointer;
+}
+.accept:hover{
+    cursor: pointer;
+}
+@media(max-width:280px){
+    #head1,#head2,#head3,#head4{
+        font-size: 8px;
+    }
+    #u1,#u2,#u3,#u4,#d_1,#d_2,#d_3,#d_4{
+        font-size: 8px;
+    }
+    #b1,#b2,#b3,#b4{
+        font-size: 5px;
+    }
 }
