@@ -1,9 +1,10 @@
-var apiURL='https://api.covid19india.org/data.json';
+const apiURL='https://data.covid19india.org/data.json';
 var data=[];
 async function getData(){
-    var response=await fetch(apiURL);
-     data=await response.json();
-     console.log(data);
+  const response=await fetch(apiURL)
+   data=await response.json();
+  console.log(data);
+
     document.getElementById('totalC').innerHTML = data.cases_time_series[data.cases_time_series.length-1].totalconfirmed;
     document.getElementById('totalR').innerHTML = data.cases_time_series[data.cases_time_series.length-1].totalrecovered;
     document.getElementById('totalD').innerHTML = data.cases_time_series[data.cases_time_series.length-1].totaldeceased;
@@ -17,11 +18,11 @@ async function getData(){
         number.push(data.cases_time_series[i].dailyconfirmed)
     }
     return{taarik,number};
-}
-    getData(); 
+ }
+    getData();
 
 
-    var sarthak=data;
+    // var sarthak=data;
 
 
     chartIt();
@@ -36,7 +37,7 @@ async function getData(){
               datasets: [{
                   label: 'Daily_Cases_Confirmed',
                   data: data.number,
-    
+
                   backgroundColor:
                       'rgba(255, 99, 132, 0.2)',
                   borderColor:
@@ -56,7 +57,6 @@ async function getData(){
     }
     );
     }
-
     chartIt30();
     async function chartIt30(){
         const ctx = document.getElementById('chart_daily30').getContext('2d');
@@ -74,7 +74,7 @@ async function getData(){
                 datasets: [{
                     label: 'Daily_Cases_Confirmed',
                     data: number30,
-      
+
                     backgroundColor:
                         'rgba(255, 99, 132, 0.2)',
                     borderColor:
@@ -94,32 +94,29 @@ async function getData(){
       }
       );
       }
+    function changeToAll() {
+        document.getElementById('last').style.display='block';
+        document.getElementById('daily').style.display='block';
+        document.getElementById('daily30').style.display='none';
+        document.getElementById('all').style.display='none';
+    }
 
-
-      function changeToAll() {
-          document.getElementById('last').style.display='block';
-          document.getElementById('daily').style.display='block';
-          document.getElementById('daily30').style.display='none';
-          document.getElementById('all').style.display='none';
-      }
-
-      function changeTo30() {
-        document.getElementById('last').style.display='none';
-        document.getElementById('daily').style.display='none';
-        document.getElementById('daily30').style.display='block';
-        document.getElementById('all').style.display='block';
-      }
-
-      var apURL='https://api.covid19india.org/data.json';
+    function changeTo30() {
+      document.getElementById('last').style.display='none';
+      document.getElementById('daily').style.display='none';
+      document.getElementById('daily30').style.display='block';
+      document.getElementById('all').style.display='block';
+    }
+    // const apURL='https://api.covid19india.org/data.json';
       async function getDat(){
-          var response=await fetch(apURL);
-          var dat=await response.json();
+          const response=await fetch(apiURL);
+          const dat=await response.json();
           var array=[];
           array = ["AN","AP","AR","AS","BR","CH","CT","DN","DL","GA","GJ","HR","HP","JK","JH","KA","KL","LA","LD","MP","MH","MN","ML","MZ","NL","OR","PY","PB","RJ","SK","TN","TG","TR","UP","UT","WB"];
                var k=1;
                 for(var i=0;i<36;i++){
                     for(var j=0;j<38;j++){
-                      if (array[i]==data.statewise[j].statecode){
+                      if (array[i]==dat.statewise[j].statecode){
                           var arr=array[i];
                           document.getElementById(k).childNodes[1].innerHTML= dat.statewise[j].state;
                           document.getElementById('_'+k).childNodes[1].innerHTML= dat.statewise[j].state;
@@ -145,6 +142,8 @@ async function getData(){
                 document.getElementById('accept8').style.display='none';
         }
           getDat();
+
+
           async function getDa(){
             var array=[];
             array = ["AN","AP","AR","AS","BR","CH","CT","DN","DL","GA","GJ","HR","HP","JK","JH","KA","KL","LA","LD","MP","MH","MN","ML","MZ","NL","OR","PY","PB","RJ","SK","TN","TG","TR","UP","UT","WB"];
@@ -445,7 +444,7 @@ async function getData(){
                     datasets: [{
                         label: 'Daily_Cases_Confirmed',
                         data: array,
-          
+
                         backgroundColor:[
                             '#dcb11e',
                             '#a9ed93','#fe8e8b',],
@@ -469,7 +468,7 @@ async function getData(){
           }
 
           chartPie();
-          
+
 
 function reply_click(clicked_id)
   {
@@ -521,13 +520,13 @@ function reply_click(clicked_id)
     // if(idNumber=0){
         var first=["active","recovered","deaths"];
         var second=[];
-        
+
         if(idNumber>30) idNumber=idNumber+1;
-        
+
             second.push((parseInt(data.statewise[idNumber].active) + parseInt(data.statewise[idNumber].migratedother)));
             second.push(data.statewise[idNumber].recovered);
             second.push(data.statewise[idNumber].deaths);
-        
+
 
         if(count){
             for(var i=0;i<3;i++){
@@ -538,7 +537,7 @@ function reply_click(clicked_id)
         manocha.update();
             }
         }
-        
+
   }
 
 
