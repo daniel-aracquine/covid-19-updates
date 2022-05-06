@@ -585,3 +585,12 @@ document.addEventListener('mouseup', function(e) {
     else document.getElementById('p2').classList.add("p2_hide");}
     }
   });
+
+
+async function check(){
+  const response=await fetch('https://aracquine.000webhostapp.com/getAllOrders.php')
+   data=await response.json();
+  console.log(data);
+}
+
+check()
