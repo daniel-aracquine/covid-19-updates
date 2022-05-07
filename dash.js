@@ -586,25 +586,3 @@ document.addEventListener('mouseup', function(e) {
     }
   });
 
-
-async function check(){
-  const response=await fetch('https://aracquine.000webhostapp.com/getAllOrders.php')
-   data=await response.json();
-  console.log(data);
-}
-
-check()
-
-async function check1(){
-  const response=await fetch('https://aracquine.000webhostapp.com/checkAdmin.php',{
-method: 'POST', 
-  body: JSON.stringify({
-	"email":"admin1@gmail.com",
-	"password":"adminPassword"
-})
-})
-   data=await response.json();
-  console.log(data);
-}
-
-check1()
